@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+
+{% block app_content %}
+	<table class=" table table-responsible table-hover">
+		<tr>
+			<td></td>
+			<td>Time</td>
+			<td>P</td>
+			<td>J</td>
+			<td>V</td>
+			<td>E</td>
+			<td>D</td>
+			<td>GP</td>
+			<td>GC</td>
+			<td>SG</td>
+			<td>CA</td>
+			<td>CV</td>
+	   </tr>
+		{% for time in times %}
+		<tr>
+			 <td><img class="escudo-mini" src="{{time.escudo}}"></td>
+			 <td>{{ time.nome }}</td>
+			 <td>{{ time.pontos }}</td>
+			 <td>{{ time.jogos | length}}</td>
+			 <td>{{ time.vitorias }} </td>
+			 <td>{{ time.empates }} </td>
+			 <td>{{ time.derrotas }} </td>
+			 <td>{{ time.gols_pro }} </td>
+			 <td>{{ time.gols_contra }} </td>
+			 <td>{{ time.saldo_gols }} </td>
+			 <td>{{ time.cartoes_amarelos }} </td>
+			 <td>{{ time.cartoes_vermelhos }} </td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}

@@ -1,0 +1,6 @@
+
+flamengo: https://s.glbimg.com/es/sde/f/organizacoes/2018/04/10/Flamengo-2018.svg
+fortaleza: https://s.glbimg.com/es/sde/f/organizacoes/2018/06/10/optimised.svg
+
+palmeiras: https://s.glbimg.com/es/sde/f/organizacoes/2019/07/06/Palmeiras.svg
+
