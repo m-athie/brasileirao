@@ -2,70 +2,30 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_content %}
+<!-- Esse bloco é um gerenciamento de Erro, não precisa mexer -->
 {% if errors %}
-	<div class="container">
-    	{%- for msg in errors %}
-    		<div class="alert alert-danger" role="alert">
-				{{ msg }}
-				{% for error in errors[msg] %}
-				{{error}}
-				{% endfor %}
-			</div>
-    	{% endfor -%}
+<div class="container">
+	{%- for msg in errors %}
+	<div class="alert alert-danger" role="alert">
+		{{ msg }}
+		{% for error in errors[msg] %}
+		{{error}}
+		{% endfor %}
 	</div>
+	{% endfor -%}
+</div>
 {% endif %}
-
-
-
-	<h1> {{ title }} </h1>
-	<form action="" method="post" novalidate>
-		{{ form.hidden_tag() }}
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-lg-5 text-right">
-				<div>
-					{{ form.mandante() }}
-					{{ form.gols_mandante(size=2)}}
-				</div>
-				<div>
-					<img class="escudo-mini" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Yellow_card.svg">
-					{{ form.amarelos_mandante(size=2) }}
-					<img class="escudo-mini" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Red_card.svg">
-					{{ form.vermelhos_mandante(size=2) }}
-				</div>
-			</div>
-			<div class="col-lg-1 text-center versus-symbol">X</div>
-			<div class="col-lg-5 text-left">
-				<div>
-					{{ form.gols_visitante(size=2)}}
-					{{ form.visitante() }} 
-				</div>
-				<div>
-					<img class="escudo-mini" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Red_card.svg">
-					{{ form.vermelhos_visitante(size=2) }}
-					<img class="escudo-mini" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Yellow_card.svg">
-					{{ form.amarelos_visitante(size=2) }}
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12" style="margin: 1em;"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-4 text-right">
-				{{ form.rodada.label }}: {{ form.rodada(size=3) }}
-			</div>
-			<div class="col-md-3">
-				{{ form.data.label}}: {{ form.data()}}
-			</div>
-			<div class="col-md-4 text-left">
-				{{ form.enviar(class_="btn btn-success") }}
-				{% if jogo %}
-					<a class="btn btn-danger" href="{{ url_for('jogos.delete', id=jogo.id) }}">Deletar</a>
-				{% endif %}
-			</div>
-		</div>
+<h1>{{ title }}</h1>
+<div class="dropdown">
+	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+		aria-haspopup="true" aria-expanded="false">
+		Botão dropdown
+	</button>
+	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		<a class="dropdown-item" href="#">Alguma ação</a>
+		<a class="dropdown-item" href="#">Outra ação</a>
+		<a class="dropdown-item" href="#">Alguma coisa aqui</a>
 	</div>
-	</form>
-{% endblock %}
+</div>
 
+{% endblock %}

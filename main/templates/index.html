@@ -1,36 +1,42 @@
 {% extends "base.html"%}
 
 {% block app_content %}
-	<table class=" table table-responsible table-hover">
+<table class="table table-striped">
+	<thead>
 		<tr>
-			<td></td>
-			<td>Time</td>
-			<td>P</td>
-			<td>J</td>
-			<td>V</td>
-			<td>E</td>
-			<td>D</td>
-			<td>GP</td>
-			<td>GC</td>
-			<td>SG</td>
-			<td>CA</td>
-			<td>CV</td>
-	   </tr>
+			<th scope="col">#</th>
+			<th scope="col"></th>
+			<th scope="col">Times</th>
+			<th scope="col">Pontos</th>
+			<th scope="col">Jogos</th>
+			<th scope="col">Vitórias</th>
+			<th scope="col">Empates</th>
+			<th scope="col">Derrotas</th>
+			<th scope="col">Gols Pró</th>
+			<th scope="col">Gols Contra</th>
+			<th scope="col">Saldo de Gols</th>
+			<th scope="col">Cartão Amarelo</th>
+			<th scope="col">Cartão Vermelho</th>
+		</tr>
+	</thead>
+	<tbody>
 		{% for time in times %}
 		<tr>
-			 <td><img class="escudo-mini" src="{{time.escudo}}"></td>
-			 <td>{{ time.nome }}</td>
-			 <td>{{ time.pontos }}</td>
-			 <td>{{ time.jogos | length}}</td>
-			 <td>{{ time.vitorias }} </td>
-			 <td>{{ time.empates }} </td>
-			 <td>{{ time.derrotas }} </td>
-			 <td>{{ time.gols_pro }} </td>
-			 <td>{{ time.gols_contra }} </td>
-			 <td>{{ time.saldo_gols }} </td>
-			 <td>{{ time.cartoes_amarelos }} </td>
-			 <td>{{ time.cartoes_vermelhos }} </td>
+			<th scope="row">1</th>
+			<td><img class="escudo-mini" src="{{ time.escudo }}"></td>
+			<td>{{ time.nome }}</td>
+			<td>{{ time.pontos }}</td>
+			<td>{{ time.jogos | length }}</td>
+			<td>{{ time.vitorias }}</td>
+			<td>{{ time.empates }}</td>
+			<td>{{ time.derrotas }}</td>
+			<td>{{ time.gols_pro }}</td>
+			<td>{{ time.gols_contra }}</td>
+			<td>{{ time.saldo_gols }}</td>
+			<td>{{ time.cartoes_amarelos }}</td>
+			<td>{{ time.cartoes_vermelhos }}</td>
 		</tr>
-		{% endfor %}
-	</table>
+		{%endfor%}
+	</tbody>
+</table>
 {% endblock %}

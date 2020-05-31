@@ -21,7 +21,6 @@ def create():
     times = list(Time.query.with_entities(Time.id, Time.nome))
     form.mandante.choices = times
     form.visitante.choices = times
-    print(form.errors)
     if form.validate_on_submit():
         jogo = Jogo(rodada=form.rodada.data, data=form.data.data,
                     time_mandante_id=form.mandante.data,
