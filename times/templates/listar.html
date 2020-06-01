@@ -1,20 +1,18 @@
 {% extends "base.html"%}
 
 {% block app_content %}
-
-<a href="{{ url_for('times.create') }}" class="btn btn-default">Novo time</a>
+<a type="button" class="btn btn-success" href="{{ url_for('times.create') }}" class="btn btn-default">Novo time</a>
 <br>
 <br>
-<div class="container">
-	<ul class="list-unstyled row">
-		{% for time in times %}
-		 <li class="list-group-item col-md-4 borderless text-center">
-			<img class="escudo-mini" src="{{ time.escudo }}"> 
-			{{ time.nome }}
-             <a href="{{ url_for('times.update', id=time.id) }}">edit</a>
-             <a href="{{ url_for('times.delete', id=time.id) }}">delete</a>
-		 </li>
-		{% endfor %}
+<div class="container row mx-md-n5">
+	{% for time in times %}
+	<li class="list-group-item d-flex justify-content-between align-items-center">
+		<img class="escudo-mini" src="{{ time.escudo }}">
+		{{ time.nome }}
+		<a class="btn btn-success badge" href="{{ url_for('times.delete', id=time.id) }}">deletar</a>
+		<a class="btn btn-success badge" href="{{ url_for('times.update', id=time.id) }}">editar</a>
+	</li>
+	{% endfor %}
 	</ul>
 </div>
-{% endblock %} 
+{% endblock %}

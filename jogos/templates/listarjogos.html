@@ -1,28 +1,32 @@
 {% extends "base.html"%}
 
 {% block app_content %}
-<a type="button" class="btn btn-secondary" href="{{ url_for('jogos.create') }}">Adicionar Novo Jogo</a>
-{% for rodada in jogos %}
-<ul class="list-group">
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    Rodada {{ rodada }}
-  </li>
-  {% for jogo in jogos[rodada] %}
-  <li class="list-group-item d-flex justify-content-between align-items-center">
-    <img class="escudo-mini" src="{{jogo.mandante.escudo}}">
-    {{ jogo.mandante.nome }}
-    {{ jogo.gols_mandante }} x
-    {{ jogo.visitante.nome }}
-    {{ jogo.gols_visitante }}
-    <img class="escudo-mini" src="{{jogo.visitante.escudo}}">
-    <a href="{{ url_for('jogos.delete', id=jogo.id)}}">
-      <button type="button" class="btn btn-primary btn-sm badge">deletar</button>
-    </a>
-    <a href="{{ url_for('jogos.update', id=jogo.id)}}">
-      <button type="button" class="btn btn-secondary btn-sm badge">editar</button>
-    </a>
-  </li>
+<a type="button" class="btn btn-success" href="{{ url_for('jogos.create') }}">Adicionar Novo Jogo</a>
+<br>
+<br>
+<div class="container row mx-md-n5">
+  {% for rodada in jogos %}
+  <ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      Rodada {{ rodada }}
+    </li>
+    {% for jogo in jogos[rodada] %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      {{ jogo.mandante.nome }}
+      <img class="escudo-mini" src="{{jogo.mandante.escudo}}">
+      {{ jogo.gols_mandante }} x
+      {{ jogo.gols_visitante }}
+      <img class="escudo-mini" src="{{jogo.visitante.escudo}}">
+      {{ jogo.visitante.nome }}
+      <a class="btn btn-success badge" href="{{ url_for('jogos.delete', id=jogo.id)}}">
+        deletar
+      </a>
+      <a class="btn btn-success badge" href="{{ url_for('jogos.update', id=jogo.id)}}">
+        editar
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
   {% endfor %}
-</ul>
-{% endfor %}
+</div>
 {% endblock %}

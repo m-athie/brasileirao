@@ -5,7 +5,6 @@
 	<thead>
 		<tr>
 			<th scope="col">#</th>
-			<th scope="col"></th>
 			<th scope="col">Times</th>
 			<th scope="col">Pontos</th>
 			<th scope="col">Jogos</th>
@@ -22,7 +21,6 @@
 	<tbody>
 		{% for time in times %}
 		<tr>
-			<th scope="row">1</th>
 			<td><img class="escudo-mini" src="{{ time.escudo }}"></td>
 			<td>{{ time.nome }}</td>
 			<td>{{ time.pontos }}</td>

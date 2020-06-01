@@ -15,17 +15,41 @@
 	{% endfor -%}
 </div>
 {% endif %}
-<h1>{{ title }}</h1>
-<div class="dropdown">
-	<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-		aria-haspopup="true" aria-expanded="false">
-		Botão dropdown
-	</button>
-	<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-		<a class="dropdown-item" href="#">Alguma ação</a>
-		<a class="dropdown-item" href="#">Outra ação</a>
-		<a class="dropdown-item" href="#">Alguma coisa aqui</a>
-	</div>
-</div>
 
+<h1>{{ title }}</h1>
+<br>
+<br>
+<br>
+<form action="" method="post" novalidate>
+	{{ form.hidden_tag() }}
+	<!--<div class="placar container-fluid row mx-md-n5">-->
+	<div class="placar">
+		<div class="placar__equipes--mandante">
+			{{ form.mandante.label }} {{ form.mandante(class="btn btn-primary") }}<br>
+			{{ form.gols_mandante.label }} {{ form.gols_mandante(size=2) }}<br>
+			{{ form.amarelos_mandante.label }} {{ form.amarelos_mandante(size=2) }}<br>
+			{{ form.vermelhos_mandante.label }} {{ form.vermelhos_mandante(size=2) }}
+		</div>
+		<div class="placar-box">X</div>
+		<div class="placar__equipes--visitantes">
+			{{ form.visitante(class="btn btn-primary") }} {{ form.visitante.label }}<br>
+			{{ form.gols_visitante(size=2) }} {{ form.gols_visitante.label }}<br>
+			{{ form.amarelos_visitante(size=2) }} {{ form.amarelos_visitante.label }}<br>
+			{{ form.vermelhos_visitante(size=2) }} {{ form.vermelhos_visitante.label }}
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-md-4 text-right">
+			{{ form.rodada.label }}: {{ form.rodada(size=3) }}
+		</div>
+		<div class="col-md-4 text-center">
+			{{ form.data.label }}: {{ form.data() }}
+		</div>
+		<div class="col-md-4 text-left">
+			{{ form.enviar(class="btn btn-success") }}
+		</div>
+	</div>
+</form>
 {% endblock %}
